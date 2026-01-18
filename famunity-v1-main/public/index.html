@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>App de Tarefas</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    body { background-color: #f8f9fa; }
+    .vh-100 { height: 100vh; }
+    .hidden { 
+      display: none !important;
+      visibility: hidden !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tela de Login -->
+  <div id="login-screen" class="d-flex align-items-center justify-content-center vh-100">
+    <div class="card shadow-sm" style="width: 24rem;">
+      <div class="card-body">
+        <h4 class="card-title text-center mb-4">Entrar</h4>
+
+        <!-- Alertas -->
+        <div id="login-alert" class="alert alert-danger d-none" role="alert"></div>
+        <div id="login-success" class="alert alert-success d-none" role="alert"></div>
+
+        <!-- Formulário de Login -->
+        <form id="login-form">
+          <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="Email" required/>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" id="senha" placeholder="Senha" required/>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mb-2">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </button>
+        </form>
+
+        <!-- Botão Esqueci Senha -->
+        <button type="button" id="forgot-password-btn" class="btn btn-link w-100 mb-2" style="text-decoration: none; padding: 0;">
+          Esqueci minha senha
+        </button>
+
+        <!-- Botão Google -->
+        <button type="button" id="google-login-btn" class="btn btn-outline-danger w-100 mb-2">
+          <i class="bi bi-google"></i> Entrar com Google
+        </button>
+
+        <!-- Criar conta -->
+        <hr class="my-3"/>
+        <button type="button" id="signup-btn" class="btn btn-outline-primary w-100">
+          <i class="bi bi-person-plus"></i> Criar conta
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tela Principal -->
+  <div id="app-screen" class="hidden">
+    <nav class="navbar navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand">Meu App de Tarefas</a>
+        <div class="ms-auto d-flex align-items-center">
+          <span id="user-email" class="text-white me-3 small"></span>
+          <button id="logout-btn" class="btn btn-outline-light btn-sm">
+            <i class="bi bi-box-arrow-right"></i> Sair
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-4">
+      <div id="task-alert" class="alert alert-danger d-none"></div>
+      <div id="task-success" class="alert alert-success d-none"></div>
+
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Adicionar Nova Tarefa</h5>
+          <form id="task-form">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Nome da Tarefa *</label>
+                <input type="text" class="form-control" id="task-name" placeholder="Ex: Comprar mantimentos" required/>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Local</label>
+                <input type="text" class="form-control" id="task-location" placeholder="Ex: Supermercado"/>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label class="form-label">Data</label>
+                <input type="date" class="form-control" id="task-date"/>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label class="form-label">Hora</label>
+                <input type="time" class="form-control" id="task-time"/>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label class="form-label">Prioridade</label>
+                <select class="form-select" id="task-priority">
+                  <option value="baixa">Baixa</option>
+                  <option value="media" selected>Média</option>
+                  <option value="alta">Alta</option>
+                </select>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label class="form-label">Visibilidade</label>
+                <select class="form-select" id="task-visibility">
+                  <option value="privada" selected>Privada</option>
+                  <option value="publica">Pública</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Descrição</label>
+              <textarea class="form-control" id="task-description" placeholder="Detalhes adicionais da tarefa" rows="2"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">
+              <i class="bi bi-plus-circle"></i> Adicionar Tarefa
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <h5 class="mb-3">Minhas Tarefas</h5>
+      <ul id="task-list" class="list-group"></ul>
+    </div>
+
+    <footer class="bg-primary text-white text-center py-3 mt-4">
+      <p class="mb-0">© 2026 - Meu App de Tarefas</p>
+    </footer>
+  </div>
+
+  <!-- Modal de Cadastro -->
+  <div class="modal fade" id="signupModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Criar Nova Conta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div id="signup-alert" class="alert alert-danger d-none" role="alert"></div>
+          <div id="signup-success" class="alert alert-success d-none" role="alert"></div>
+          <form id="signup-form">
+            <div class="mb-3">
+              <label class="form-label">Nome Completo</label>
+              <input type="text" class="form-control" id="signup-name" placeholder="Digite seu nome completo" required/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" id="signup-email" placeholder="Digite seu email" required/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Senha</label>
+              <input type="password" class="form-control" id="signup-senha" placeholder="Digite uma senha forte" required/>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+              <i class="bi bi-person-plus"></i> Criar conta
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+  <!-- App JS -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

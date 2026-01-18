@@ -1,0 +1,93 @@
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f5f6fa;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Mensagens de status */
+#status {
+  padding: 12px;
+  font-size: 14px;
+  text-align: center;
+  color: #444;
+}
+
+/* Caixas de login/cadastro */
+.authBox {
+  max-width: 360px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.authBox h2 { margin-bottom: 16px; text-align: center; }
+.authBox input, .authBox button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.authBox button {
+  background: #0078d7;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.authBox button:hover { background: #005fa3; }
+
+/* Layout principal */
+.app { display: flex; flex-direction: column; height: 100vh; }
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 20px; background: #0078d7; color: #fff;
+}
+.headerActions button {
+  margin-left: 8px; padding: 6px 12px; border: none; border-radius: 6px;
+  background: #fff; color: #0078d7; font-weight: bold; cursor: pointer;
+  transition: background 0.2s;
+}
+.headerActions button:hover { background: #e6e6e6; }
+.main { flex: 1; padding: 20px; overflow-y: auto; }
+.pane { max-width: 720px; margin: 0 auto; }
+
+/* Filtros */
+.filtros {
+  display: flex; gap: 16px; margin-bottom: 20px; align-items: center;
+}
+.filtros label { font-weight: bold; }
+.filtros select { padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; }
+
+/* Cards de tarefas */
+.card {
+  background: #fff; border: 1px solid #ddd; border-radius: 10px;
+  padding: 14px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.cardHeader { display: flex; justify-content: space-between; align-items: center; }
+.cardTitle { font-weight: bold; font-size: 16px; }
+.cardMeta { font-size: 13px; color: #666; margin-top: 6px; }
+.cardActions { margin-top: 12px; display: flex; gap: 10px; }
+.cardActions button {
+  padding: 6px 12px; border: none; border-radius: 6px; cursor: pointer;
+  font-weight: bold; transition: opacity 0.2s;
+}
+.cardActions button:hover { opacity: 0.8; }
+
+/* Botões de ação específicos */
+.cardActions button:first-child { background: #28a745; color: #fff; } /* Concluir */
+.cardActions button:last-child { background: #dc3545; color: #fff; }  /* Excluir */
+
+/* Badge de status */
+.cardHeader .statusBadge {
+  font-size: 12px; font-weight: bold; padding: 4px 8px; border-radius: 6px;
+}
+.status-pendente { background: #ffc107; color: #000; }
+.status-concluida { background: #28a745; color: #fff; }

@@ -1,0 +1,447 @@
+/* CSS Melhorado - Versão 2.0
+ * Adicione este CSS ao seu arquivo index.html ou a um arquivo style.css
+ * Substitua ou estenda o CSS existente para melhorias visuais
+ */
+
+:root {
+  --primary: #0d6efd;
+  --success: #198754;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  --info: #0dcaf0;
+  --secondary: #6c757d;
+  --light-bg: #f8f9fa;
+  --border-color: #dee2e6;
+}
+
+/* ==================== GERAL ==================== */
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==================== LOGIN ==================== */
+#login-screen {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#login-screen .card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+#login-screen .card-body {
+  padding: 2.5rem;
+}
+
+#login-screen .card-title {
+  color: #333;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+  background: linear-gradient(135deg, var(--primary) 0%, #0a58ca 100%) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.3px;
+}
+
+/* ==================== ABAS ==================== */
+.nav-tabs {
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  gap: 1rem;
+}
+
+.nav-tabs .nav-link {
+  color: #666;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary);
+  border-color: var(--primary);
+  background-color: transparent;
+}
+
+.nav-tabs .badge {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.5rem;
+}
+
+/* ==================== CARDS ==================== */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.card-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--light-bg);
+}
+
+/* ==================== FORMS ==================== */
+.form-control,
+.form-select {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* ==================== BOTÕES ==================== */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0.6rem 1.2rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #0a58ca 100%);
+  box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0a58ca 0%, #0d6efd 100%);
+  box-shadow: 0 6px 15px rgba(13, 110, 253, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success) 0%, #146c43 100%);
+  box-shadow: 0 4px 10px rgba(25, 135, 84, 0.3);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #146c43 0%, var(--success) 100%);
+  box-shadow: 0 6px 15px rgba(25, 135, 84, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--danger) 0%, #b02622 100%);
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #b02622 0%, var(--danger) 100%);
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.btn i {
+  margin-right: 0.5rem;
+}
+
+/* ==================== LISTAS ==================== */
+.list-group {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.list-group-item {
+  border: 1px solid var(--border-color);
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #f9f9f9;
+  border-color: var(--primary);
+}
+
+.list-group-item.bg-light {
+  background-color: #e7f5ff !important;
+  border-left: 4px solid var(--primary);
+}
+
+.list-group-item h6 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.list-group-item small {
+  color: #999;
+}
+
+/* ==================== BADGES ==================== */
+.badge {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.badge.bg-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #0a58ca 100%) !important;
+  box-shadow: 0 2px 5px rgba(13, 110, 253, 0.3);
+}
+
+.badge.bg-success {
+  background: linear-gradient(135deg, var(--success) 0%, #146c43 100%) !important;
+  box-shadow: 0 2px 5px rgba(25, 135, 84, 0.3);
+}
+
+.badge.bg-danger {
+  background: linear-gradient(135deg, var(--danger) 0%, #b02622 100%) !important;
+  box-shadow: 0 2px 5px rgba(220, 53, 69, 0.3);
+}
+
+.badge.bg-info {
+  background: linear-gradient(135deg, var(--info) 0%, #078dd8 100%) !important;
+  box-shadow: 0 2px 5px rgba(13, 202, 240, 0.3);
+}
+
+/* ==================== ALERTAS ==================== */
+.alert {
+  border: none;
+  border-radius: 8px;
+  border-left: 4px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation: slideIn 0.3s ease;
+}
+
+.alert-danger {
+  border-left-color: var(--danger);
+  background-color: #fff5f5;
+  color: #842029;
+}
+
+.alert-success {
+  border-left-color: var(--success);
+  background-color: #f1f6f3;
+  color: #0f5132;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== MODAL ==================== */
+.modal-content {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--light-bg);
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-title {
+  font-weight: 600;
+  color: #333;
+}
+
+/* ==================== CHECKBOX ==================== */
+.form-check-input {
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 4px;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 2px 5px rgba(13, 110, 253, 0.3);
+}
+
+.form-check-input:hover:not(:disabled) {
+  border-color: var(--primary);
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+/* ==================== RESPONSIVO ==================== */
+@media (max-width: 768px) {
+  #login-screen .card {
+    margin: 1rem;
+    width: calc(100% - 2rem) !important;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .nav-tabs {
+    gap: 0.3rem;
+  }
+
+  .nav-tabs .nav-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .list-group-item {
+    flex-direction: column;
+  }
+
+  .list-group-item .btn {
+    margin-top: 0.5rem;
+  }
+
+  .d-flex.gap-2 {
+    gap: 0.5rem !important;
+  }
+}
+
+/* ==================== ANIMAÇÕES ==================== */
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+/* Transição suave entre abas */
+.tab-pane {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==================== ESTADOS ESPECIAIS ==================== */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.text-decoration-line-through {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* ==================== GRADIENTES ==================== */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #0a58ca 100%) !important;
+  color: white;
+}
+
+.bg-gradient-success {
+  background: linear-gradient(135deg, var(--success) 0%, #146c43 100%) !important;
+  color: white;
+}
+
+/* ==================== SOMBRAS ==================== */
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.shadow {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ==================== UTILITÁRIOS ==================== */
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 1rem;
+}
+
+.text-muted {
+  color: #999 !important;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
